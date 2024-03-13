@@ -1,4 +1,12 @@
 import express from "express";
+import {
+    addEmployeeController,
+    getAllEmployeeController,
+    searchEmployeeController,
+    filterEmployeeController,
+    updateEmployeeController,
+    deleteEmployeeController
+} from '../controllers/employeeController.js'
 
 const  router = express.Router();
 
@@ -8,6 +16,7 @@ router.get('/employees',getAllEmployeeController);
 
 // route for adding new an employee
 router.post('/employees/add',addEmployeeController);
+
 //route for filter the employees
 router.get('/employees/filter',filterEmployeeController);;
 
