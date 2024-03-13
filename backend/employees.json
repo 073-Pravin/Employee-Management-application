@@ -1,1 +1,58 @@
-[{"id":1,"fullname":"Pravin Pilodiya","age":23,"dob":"07-may-2000","salary":100000,"department":"branch"}]
+[
+  {
+    "id": "1710323503821-841",
+    "fullname": "Harish Kumar Meena",
+    "age": 28,
+    "dob": "01-Jan-1991",
+    "salary": 10000,
+    "department": "safai"
+  },
+  {
+    "id": "1710323762506-479",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  },
+  {
+    "id": "Wed Mar 13 2024 15:26:40 GMT+0530 (India Standard Time)-792",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  },
+  {
+    "id": "1710323848100-152",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  },
+  {
+    "id": "8AV31MvDZm",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  },
+  {
+    "id": "8Xtc9SomFg634atTVfvQRyPo7pVaegb9",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  },
+  {
+    "id": "1oF17MuPR7olIjIeelVFlCaFgCIZV8Vp",
+    "fullname": "Pravin Pilodiya",
+    "age": 23,
+    "dob": "07-May-2000",
+    "salary": 10000,
+    "department": "branch"
+  }
+]

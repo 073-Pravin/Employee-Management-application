@@ -6,7 +6,7 @@ import {
     filterEmployeeController,
     updateEmployeeController,
     deleteEmployeeController
-} from '../controllers/exployeeController.js'
+} from '../controllers/employeeController.js'
 
 const  router = express.Router();
 
@@ -18,7 +18,7 @@ router.get('/employees',getAllEmployeeController);
 router.post('/employees/add',addEmployeeController);
 
 //route for filter the employees
-router.get('/employees/filter',filterEmployeeController);;
+router.get('/employees/filter',filterEmployeeController);
 
 // route for searching the employees based on the name
 router.get('/employees/search',searchEmployeeController);

@@ -1,7 +1,5 @@
 import fs from "fs";
 
-let employees = [];
-
 // fuction for loading the movies from employee.json file
 const loadEmployees = async () => {
   try {
@@ -16,17 +14,28 @@ const loadEmployees = async () => {
 // function for storing the employees in the employee.json file
 const saveEmployees = (newEmployees) => {
   try {
-    const dataJSON = JSON.stringify(newEmployees);
+    const dataJSON = JSON.stringify(newEmployees,null,2);
     fs.writeFileSync("./employees.json", dataJSON);
   } catch (error) {
     console.log("Error in saving the employees", error.message);
   }
 };
 
+// function for generating a unique id for the employee
+const generateUniqueId = () => {
+  const charactersString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let uniqueId = '';
+  for (let i = 0; i < 32; i++) {
+    const randomIndex = Math.floor(Math.random() * charactersString.length);
+    uniqueId += charactersString[randomIndex];
+  }
+  return uniqueId;
+};
+
 //controller for getting all employees
 export const getAllEmployeeController = async (req, res) => {
   try {
-    employees = await loadEmployees();
+    let employees = await loadEmployees();
     res.status(200).json({ success: true, employees });
   } catch (error) {
     res.status(500).json({
@@ -40,8 +49,10 @@ export const getAllEmployeeController = async (req, res) => {
 // Function to add an employee to the employees array and then store it into the json file
 export const addEmployeeController = async (req, res) => {
   try {
-    employees = await loadEmployees();
-    const newEmployees = req.body;
+    let employees = await loadEmployees();
+    let newEmployees = req.body;
+    let employeeId= generateUniqueId();
+    newEmployees = { id: employeeId, ...newEmployees };
     employees.push(newEmployees);
     saveEmployees(employees);
     res
@@ -63,8 +74,8 @@ export const addEmployeeController = async (req, res) => {
 //controller for filtering employees
 export const filterEmployeeController =async(req,res)=>{
     try {
-        const department = req.query;
-        employees = await loadEmployees();
+        const {department} = req.query;
+        let employees = await loadEmployees();
         const filteredEmployees = employees.filter(employee=>employee.department === department);
        if(!filteredEmployees.length){
            res.status(404).json({success:false,message:"No employee found"});
@@ -80,7 +91,7 @@ export const filterEmployeeController =async(req,res)=>{
 export const searchEmployeeController = async (req, res) => {
   try {
     const { name } = req.query;
-    employees = await loadEmployees();
+    let employees = await loadEmployees();
     const searchedEmployees = employees.filter((employee) =>
       employee.name.toLowerCase().includes(name.toLowerCase())
     );
@@ -103,7 +114,7 @@ export const updateEmployeeController = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedEmployee = req.body;
-    employees = await loadEmployees();
+    let employees = await loadEmployees();
     const employee = employees.find((employee) => employee.id === id);
     if (employee) {
       const index = employees.indexOf(employee);
@@ -132,7 +143,7 @@ export const updateEmployeeController = async (req, res) => {
 export const deleteEmployeeController = async (req, res) => {
   try {
     const { employeeId } = req.params;
-    employees = await loadEmployees();
+    let employees = await loadEmployees();
     const index = employees.findIndex((employee) => employee.id === employeeId);
     if (index !== -1 && index < employees.length) {
       employees.splice(index, 1);
