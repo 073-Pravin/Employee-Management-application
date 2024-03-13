@@ -1,5 +1,5 @@
 import fs from "fs";
-
+import uniqid from "uniqid";
 // fuction for loading the movies from employee.json file
 const loadEmployees = async () => {
   try {
@@ -21,17 +21,6 @@ const saveEmployees = (newEmployees) => {
   }
 };
 
-// function for generating a unique id for the employee
-const generateUniqueId = () => {
-  const charactersString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let uniqueId = '';
-  for (let i = 0; i < 32; i++) {
-    const randomIndex = Math.floor(Math.random() * charactersString.length);
-    uniqueId += charactersString[randomIndex];
-  }
-  return uniqueId;
-};
-
 //controller for getting all employees
 export const getAllEmployeeController = async (req, res) => {
   try {
@@ -51,7 +40,7 @@ export const addEmployeeController = async (req, res) => {
   try {
     let employees = await loadEmployees();
     let newEmployees = req.body;
-    let employeeId= generateUniqueId();
+    let employeeId= uniqid();
     newEmployees = { id: employeeId, ...newEmployees };
     employees.push(newEmployees);
     saveEmployees(employees);
@@ -93,7 +82,7 @@ export const searchEmployeeController = async (req, res) => {
     const { name } = req.query;
     let employees = await loadEmployees();
     const searchedEmployees = employees.filter((employee) =>
-      employee.name.toLowerCase().includes(name.toLowerCase())
+      employee.fullname.toLowerCase().includes(name.toString().toLowerCase())
     );
     if (!searchedEmployees.length) {
       res.status(404).json({ success: false, message: "No employee found" });
@@ -115,7 +104,7 @@ export const updateEmployeeController = async (req, res) => {
     const { id } = req.params;
     const updatedEmployee = req.body;
     let employees = await loadEmployees();
-    const employee = employees.find((employee) => employee.id === id);
+    const employee = employees.find((employee) => employee.id === id.toString());
     if (employee) {
       const index = employees.indexOf(employee);
       employees[index] = { ...employee, ...updatedEmployee };
@@ -142,9 +131,10 @@ export const updateEmployeeController = async (req, res) => {
 //controller for deleting an employee
 export const deleteEmployeeController = async (req, res) => {
   try {
-    const { employeeId } = req.params;
+    const { id } = req.params;
+    console.log(id);
     let employees = await loadEmployees();
-    const index = employees.findIndex((employee) => employee.id === employeeId);
+    const index = employees.findIndex((employee) => employee.id === id.toString());
     if (index !== -1 && index < employees.length) {
       employees.splice(index, 1);
       saveEmployees(employees);

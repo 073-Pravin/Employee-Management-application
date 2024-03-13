@@ -24,9 +24,9 @@ router.get('/employees/filter',filterEmployeeController);
 router.get('/employees/search',searchEmployeeController);
 
 // route for update an employee record
-router.put('/emplyees/:id',updateEmployeeController);
+router.put('/employees/update/:id',updateEmployeeController);
 
 // route for deleting an employee
-router.delete('/employees/:id',deleteEmployeeController);
+router.delete('/employees/delete/:id',deleteEmployeeController);
 
 export default router;
