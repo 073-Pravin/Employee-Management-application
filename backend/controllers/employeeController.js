@@ -35,7 +35,20 @@ export const getAllEmployeeController = async (req, res) => {
   }
 };
 
-// Function to add an employee to the employees array and then store it into the json file
+//controller for getting an employee by id
+
+export const getEmployeeController=async (req,res)=>{
+  try {
+    const {id}= req.params;
+    let employees = await loadEmployees();
+    const employee = await employees.find((employee)=>employee.id===id.toString());
+    res.status(200).json({ success: true, employee});
+  } catch (error) {
+    res.status(500).json({sucees:false,message: "Error in getting employee",error: error.message});
+  }
+}
+
+// controller for add an employee to the employees array and then store it into the json file
 export const addEmployeeController = async (req, res) => {
   try {
     let employees = await loadEmployees();
