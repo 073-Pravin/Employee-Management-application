@@ -7,47 +7,46 @@ import { useEmployees } from "../contexts/EmployeeProvider";
 const Navbar = () => {
   const [name,setName]=useState();
   const [employees,setEmployees] = useEmployees();
+
+
   const handleSearch =async(e)=>{
     e.preventDefault();
     try {
       const response = await axios.get(`http://localhost:5000/api/employees/search/?name=${name}`);
       setEmployees(response.data.employees);
-      console.log(response.data.employees);  
     } catch (error) {
       console.log("Error in fetching employee",error);
     }
   };
 
   const handleHome = async()=>{
-    // const init = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/employees");
-        // console.log(response.data.employees);
+
         setEmployees(response.data.employees);
-        // console.log(employees);
+  
       } catch (error) {
         console.log("Error in fetching employee", error);
       }
-    // };
-    // init();
   }
 
-  const handleDevelopment = async()=>{
+  const handleFilter = async(e)=>{
     try {
-      const Development = "Development";
-      const response = await axios.get(`http://localhost:5000/api/employees/filter/?department=${Development}`);
+      const Department = e.target.name;
+      const response = await axios.get(`http://localhost:5000/api/employees/filter/?department=${Department}`);
       setEmployees(response.data.employees);
       console.log(response.data.employees);
     } catch (error) {
       console.log("Error in fetching employee",error);
     }
-  }
+  };
+
 
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand logo" to="#">
+          <Link className="navbar-brand logo" to="#" onClick={handleHome}>
             EMA
           </Link>
           <button
@@ -90,27 +89,27 @@ const Navbar = () => {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDevelopment}>
+                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="development">
                       Development
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="project management" >
                       Project management
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="human resources" >
                       Human Resources
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="data analytics">
                       Data Analytics
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="finance and accounting">
                       Finance and Accounting
                     </Link>
                   </li>
@@ -125,6 +124,7 @@ const Navbar = () => {
                 aria-label="Search"
                 name="name"
                 onChange={(e)=>setName(e.target.value)}
+                required
               />
               <button className="btn btn-outline-success" onClick={handleSearch}type="submit">
                 Search

@@ -50,7 +50,7 @@ export const addEmployeeController = async (req, res) => {
       .json({
         success: true,
         message: "Employee added successfully",
-        employees,
+        newEmployees,
       });
   } catch (error) {
     res.status(500).json({
@@ -66,7 +66,7 @@ export const filterEmployeeController =async(req,res)=>{
     try {
         const {department} = req.query;
         let employees = await loadEmployees();
-        const filteredEmployees = employees.filter(employee=>employee.department === department);
+        const filteredEmployees = employees.filter(employee=>employee.department.toLowerCase() === department.toLowerCase());
        if(!filteredEmployees.length){
            res.status(404).json({success:false,message:"No employee found"});
        }else{
@@ -87,7 +87,7 @@ export const searchEmployeeController = async (req, res) => {
       employee.fullname.toLowerCase().includes(name.toString().toLowerCase())
     );
     if (!searchedEmployees.length) {
-      res.status(404).json({ success: false, message: "No employee found" });
+      res.status(200).json({ success: false, message: "No employee found" ,employees:[]});
     } else {
       res.status(200).json({ success: true, employees: searchedEmployees });
     }
@@ -104,19 +104,20 @@ export const searchEmployeeController = async (req, res) => {
 export const updateEmployeeController = async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedEmployee = req.body;
+    const tobeupdatedEmployee = req.body;
     let employees = await loadEmployees();
     const employee = employees.find((employee) => employee.id === id.toString());
     if (employee) {
       const index = employees.indexOf(employee);
-      employees[index] = { ...employee, ...updatedEmployee };
+      employees[index] = { ...employee, ...tobeupdatedEmployee };
+      const updatedemployee=employees[index];
       saveEmployees(employees);
       res
         .status(200)
         .json({
           success: true,
           message: "Employee updated successfully",
-          employees,
+          updatedemployee,
         });
     } else {
       res.status(404).json({ success: false, message: "Employee not found" });
