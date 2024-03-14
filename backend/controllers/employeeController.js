@@ -35,18 +35,6 @@ export const getAllEmployeeController = async (req, res) => {
   }
 };
 
-//controller for getting an employee by id
-
-export const getEmployeeController=async (req,res)=>{
-  try {
-    const {id}= req.params;
-    let employees = await loadEmployees();
-    const employee = await employees.find((employee)=>employee.id===id.toString());
-    res.status(200).json({ success: true, employee});
-  } catch (error) {
-    res.status(500).json({sucees:false,message: "Error in getting employee",error: error.message});
-  }
-}
 
 // controller for add an employee to the employees array and then store it into the json file
 export const addEmployeeController = async (req, res) => {
@@ -92,6 +80,7 @@ export const filterEmployeeController =async(req,res)=>{
 //controller for searching employees by name
 export const searchEmployeeController = async (req, res) => {
   try {
+    console.log("hey");
     const { name } = req.query;
     let employees = await loadEmployees();
     const searchedEmployees = employees.filter((employee) =>
@@ -149,7 +138,7 @@ export const deleteEmployeeController = async (req, res) => {
     let employees = await loadEmployees();
     const index = employees.findIndex((employee) => employee.id === id.toString());
     if (index !== -1 && index < employees.length) {
-      employees.splice(index, 1);
+      employees.splice(index,1);
       saveEmployees(employees);
       res
         .status(200)

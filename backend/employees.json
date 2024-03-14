@@ -176,30 +176,6 @@
     "department": "branch"
   },
   {
-    "id": "ndgl41dwsltpnsefx",
-    "fullname": "Pravin Pilodiya",
-    "age": 23,
-    "dob": "07-May-2000",
-    "salary": 10000,
-    "department": "branch"
-  },
-  {
-    "id": "ndgl41dwsltpnsefx",
-    "fullname": "Pravin Pilodiya",
-    "age": 23,
-    "dob": "07-May-2000",
-    "salary": 10000,
-    "department": "branch"
-  },
-  {
-    "id": "ndgl41dwsltpnsefx",
-    "fullname": "Pravin Pilodiya",
-    "age": 23,
-    "dob": "07-May-2000",
-    "salary": 10000,
-    "department": "branch"
-  },
-  {
     "id": "ndgl4125kltq38lpz",
     "fullname": "Ravindra Pilodiya",
     "age": "21",
@@ -230,5 +206,237 @@
     "dob": "2001-02-04",
     "salary": "120000",
     "department": "Finance and accounting"
+  },
+  {
+    "id": "1ybdi9cltqzr0y3",
+    "fullname": "Sagar Bhalekar",
+    "age": "22",
+    "dob": "2001-05-20",
+    "salary": "45000",
+    "department": "Marketing"
+  },
+  {
+    "0": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "1": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "2": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "3": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "4": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "5": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "6": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "7": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "8": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "9": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "10": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "11": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "12": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "13": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "14": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "15": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "16": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "17": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "18": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "19": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "20": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "21": {
+      "id": "ndgl41dwsltpnsefx",
+      "fullname": "Pravin Pilodiya",
+      "age": 23,
+      "dob": "07-May-2000",
+      "salary": 10000,
+      "department": "branch"
+    },
+    "22": {
+      "id": "ndgl4125kltq38lpz",
+      "fullname": "Ravindra Pilodiya",
+      "age": "21",
+      "dob": "2002-10-16",
+      "salary": "120000",
+      "department": "Human Resource"
+    },
+    "23": {
+      "id": "1ybdkz8ltq3c2um",
+      "fullname": "Ajay Chouhan",
+      "age": "24",
+      "dob": "1998-10-24",
+      "salary": "50000",
+      "department": "Development"
+    },
+    "24": {
+      "id": "1ybdmp0ltq3nlzr",
+      "fullname": "Sahara Pilodiya",
+      "age": "25",
+      "dob": "2022-10-22",
+      "salary": "60000",
+      "department": "Data Analyst"
+    },
+    "25": {
+      "id": "1ybd2soltq3r6zc",
+      "fullname": "Kishan Pilodiya",
+      "age": "21",
+      "dob": "2001-02-04",
+      "salary": "120000",
+      "department": "Finance and accounting"
+    },
+    "26": {
+      "id": "1ybdi9cltqzr0y3",
+      "fullname": "Sagar Bhalekar",
+      "age": "22",
+      "dob": "2001-05-20",
+      "salary": "45000",
+      "department": "Marketing"
+    },
+    "id": "1ybde2gltr07k7q",
+    "fullname": "Ankit Bhalekar",
+    "age": "21",
+    "dob": "2002-04-02",
+    "salary": "150000",
+    "department": "Data Analyst"
   }
 ]

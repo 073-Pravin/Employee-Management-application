@@ -1,8 +1,7 @@
 import express from "express";
 import {
-    addEmployeeController,
     getAllEmployeeController,
-    getEmployeeController,
+    addEmployeeController,
     searchEmployeeController,
     filterEmployeeController,
     updateEmployeeController,
@@ -14,9 +13,6 @@ const  router = express.Router();
 
 // route for getting all employees
 router.get('/employees',getAllEmployeeController);
-
-//route for getting an employee by id
-router.get('/employees/:id',getEmployeeController);
 
 // route for adding new an employee
 router.post('/employees/add',addEmployeeController);
