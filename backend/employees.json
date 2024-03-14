@@ -1,42 +1,18 @@
 [
   {
-    "id": "1ybd9w4ltr7q2gk",
-    "fullname": "Hary",
-    "age": "24",
-    "dob": "2024-03-12",
-    "salary": "1000",
-    "department": "Human Resources"
-  },
-  {
-    "id": "ndgl415zsltr8nnto",
-    "fullname": "Reddy",
+    "id": "1ybdd8gltrkygb2",
+    "fullname": "Kiara",
     "age": "21",
-    "dob": "2024-03-12",
-    "salary": "154154",
-    "department": "Project Management"
-  },
-  {
-    "id": "ndgl411x4ltra4uvj",
-    "fullname": "Pravin",
-    "age": "24",
-    "dob": "2024-03-11",
-    "salary": "54545",
+    "dob": "2024-03-07",
+    "salary": "250000",
     "department": "Finance and Accounting"
   },
   {
-    "id": "ndgl41in0ltraz08f",
-    "fullname": "Harish",
-    "age": "24",
-    "dob": "2024-03-05",
-    "salary": "100002",
+    "id": "1ybdl88ltrl7fzr",
+    "fullname": "Kavita Pilodiya",
+    "age": "22",
+    "dob": "2024-03-11",
+    "salary": "12000000",
     "department": "Development"
-  },
-  {
-    "id": "ndgl41dqsltrb0vrp",
-    "fullname": "Kiara",
-    "age": "25",
-    "dob": "2024-03-07",
-    "salary": "15211",
-    "department": "Data Analytics"
   }
 ]

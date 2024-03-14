@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { useEmployees } from "../contexts/EmployeeProvider";
 
 const AddModal = () => {
-  const [employees, setEmployees] = useEmployees();
+  const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
   const [newemployee, setNewemployee] = useState({
     fullname: "",
     age: "",
@@ -20,6 +20,7 @@ const AddModal = () => {
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
+      setAvgsal(response.data.averageSalary);
       toast.success("Employee added successfully");
       setNewemployee({
         fullname: "",

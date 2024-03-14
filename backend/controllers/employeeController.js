@@ -25,7 +25,10 @@ const saveEmployees = (newEmployees) => {
 export const getAllEmployeeController = async (req, res) => {
   try {
     let employees = await loadEmployees();
-    res.status(200).json({ success: true, employees });
+    const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
+    const averageSalary = totalSalary / employees.length;
+    res.status(200).json({ success: true, employees, totalSalary, averageSalary });
+    // res.status(200).json({ success: true, employees });
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -44,12 +47,15 @@ export const addEmployeeController = async (req, res) => {
     let employeeId= uniqid();
     newEmployees = { id: employeeId, ...newEmployees };
     employees.push(newEmployees);
+    const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
+    const averageSalary = totalSalary / employees.length;
     saveEmployees(employees);
     res
       .status(201)
       .json({
         success: true,
         message: "Employee added successfully",
+        averageSalary,
         newEmployees,
       });
   } catch (error) {
@@ -67,10 +73,12 @@ export const filterEmployeeController =async(req,res)=>{
         const {department} = req.query;
         let employees = await loadEmployees();
         const filteredEmployees = employees.filter(employee=>employee.department.toLowerCase() === department.toLowerCase());
+        const totalSalary = filteredEmployees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
+        const averageSalary = totalSalary / filteredEmployees.length;
        if(!filteredEmployees.length){
-           res.status(404).json({success:false,message:"No employee found"});
+           res.status(200).json({success:false,message:"No employee found",averageSalary:0});
        }else{
-           res.status(200).json({success:true,employees:filteredEmployees});
+           res.status(200).json({success:true,employees:filteredEmployees,averageSalary});
        }
     } catch (error) {
         res.status(500).json({success:false,message:"Error in filtering the employees",error:error.message});
@@ -86,10 +94,12 @@ export const searchEmployeeController = async (req, res) => {
     const searchedEmployees = employees.filter((employee) =>
       employee.fullname.toLowerCase().includes(name.toString().toLowerCase())
     );
+    const totalSalary = searchedEmployees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
+    const averageSalary = totalSalary / searchedEmployees.length;
     if (!searchedEmployees.length) {
-      res.status(200).json({ success: false, message: "No employee found" ,employees:[]});
+      res.status(200).json({ success: false, message: "No employee found" ,employees:[],averageSalary});
     } else {
-      res.status(200).json({ success: true, employees: searchedEmployees });
+      res.status(200).json({ success: true, employees: searchedEmployees,averageSalary});
     }
   } catch (error) {
     res.status(500).json({
@@ -117,7 +127,7 @@ export const updateEmployeeController = async (req, res) => {
         .json({
           success: true,
           message: "Employee updated successfully",
-          updatedemployee,
+          employees,
         });
     } else {
       res.status(404).json({ success: false, message: "Employee not found" });
@@ -140,13 +150,15 @@ export const deleteEmployeeController = async (req, res) => {
     const index = employees.findIndex((employee) => employee.id === id.toString());
     if (index !== -1 && index < employees.length) {
       employees.splice(index,1);
+      const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
+      const averageSalary = totalSalary / employees.length;
       saveEmployees(employees);
       res
         .status(200)
         .json({
           success: true,
           message: "Employee deleted successfully",
-          employees,
+          employees,averageSalary
         });
     } else {
       res.status(404).json({ success: false, message: "Employee not found" });

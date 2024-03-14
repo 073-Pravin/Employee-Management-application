@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useEmployees } from "../contexts/EmployeeProvider";
 
 const UpdateModal = (props) => {
-  const [employees, setEmployees] = useEmployees();
+  const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
   const [employeestate, setEmployeestate] = useState({
     fullname: props.employee.fullname,
     age: props.employee.age,
@@ -18,7 +18,7 @@ const UpdateModal = (props) => {
     // e.preventDefault();
     try {
       // Send request to update employee
-      await axios.put(
+      const response = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/employees/update/${props.employee.id}`,
         employeestate
       );
@@ -34,6 +34,8 @@ const UpdateModal = (props) => {
   
       // Update the employees state with the updated list
       setEmployees(updatedEmployees);
+      setAvgsal(response.data.averageSalary);
+
       console.log(updatedEmployees);
   
       // Show success message

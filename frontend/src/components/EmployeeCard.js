@@ -7,17 +7,19 @@ import {toast} from "react-hot-toast";
 
 
 const EmployeeCard = (props) => {
-  const [employees, setEmployees] = useEmployees();
+  const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
   const [employeestate, setEmployeestate] = useState(props.employee);
   const [formdata,setFormdata]=useState(props.employee);
 
   const handleDelete = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const response = await axios.delete(
         `${process.env.REACT_APP_BACKEND_URL}/api/employees/delete/${employeestate.id}`
       );
       setEmployees(response.data.employees);
+      setAvgsal(response.data.averageSalary);
+      toast.success("Employee deleted successfully");
     } catch (error) {
       console.log("Error in deleting an employee", error);
     }

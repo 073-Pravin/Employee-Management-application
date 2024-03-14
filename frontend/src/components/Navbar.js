@@ -2,44 +2,53 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AddModal from "./AddModal";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useEmployees } from "../contexts/EmployeeProvider";
+import AvgSalModal from "./AvgSalModal";
 const Navbar = () => {
-  const [name,setName]=useState();
-  const [employees,setEmployees] = useEmployees();
+  const [name, setName] = useState();
+  const { employees, setEmployees, avgsal, setAvgsal ,dep,setDep} = useEmployees();
 
-
-  const handleSearch =async(e)=>{
+  const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`
+      );
       setEmployees(response.data.employees);
+      setAvgsal(0);
     } catch (error) {
-      console.log("Error in fetching employee",error);
+      console.log("Error in fetching employee", error);
     }
   };
 
-  const handleHome = async()=>{
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees`);
+  const handleHome = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees`
+      );
 
-        setEmployees(response.data.employees);
-  
-      } catch (error) {
-        console.log("Error in fetching employee", error);
-      }
-  }
+      setEmployees(response.data.employees);
+      setAvgsal(response.data.averageSalary);
+    } catch (error) {
+      console.log("Error in fetching employee", error);
+    }
+  };
 
-  const handleFilter = async(e)=>{
+  const handleFilter = async (e) => {
     try {
       const Department = e.target.name;
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`
+      );
       setEmployees(response.data.employees);
+      setDep(e.target.name);
+      setAvgsal(response.data.averageSalary);
+
     } catch (error) {
-      console.log("Error in fetching employee",error);
+      console.log("Error in fetching employee", error);
     }
   };
-
 
   return (
     <div>
@@ -72,9 +81,6 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                {/* <Link className="nav-link active" to="#">
-                Add new employee
-                </Link> */}
                 <AddModal />
               </li>
               <div className="dropdown">
@@ -88,32 +94,60 @@ const Navbar = () => {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="development">
+                    <Link
+                      className="dropdown-item"
+                      to="#"
+                      onClick={handleFilter}
+                      name="development"
+                    >
                       Development
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="project management" >
+                    <Link
+                      className="dropdown-item"
+                      to="#"
+                      onClick={handleFilter}
+                      name="project management"
+                    >
                       Project management
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="human resources" >
+                    <Link
+                      className="dropdown-item"
+                      to="#"
+                      onClick={handleFilter}
+                      name="human resources"
+                    >
                       Human Resources
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="data analytics">
+                    <Link
+                      className="dropdown-item"
+                      to="#"
+                      onClick={handleFilter}
+                      name="data analytics"
+                    >
                       Data Analytics
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleFilter} name="finance and accounting">
+                    <Link
+                      className="dropdown-item"
+                      to="#"
+                      onClick={handleFilter}
+                      name="finance and accounting"
+                    >
                       Finance and Accounting
                     </Link>
                   </li>
                 </ul>
               </div>
+              {/* <li className="nav-item">
+                <AvgSalModal />
+              </li> */}
             </ul>
             <form className="d-flex" role="search">
               <input
@@ -122,10 +156,14 @@ const Navbar = () => {
                 placeholder="Search"
                 aria-label="Search"
                 name="name"
-                onChange={(e)=>setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
-              <button className="btn btn-outline-success" onClick={handleSearch}type="submit">
+              <button
+                className="btn btn-outline-success"
+                onClick={handleSearch}
+                type="submit"
+              >
                 Search
               </button>
             </form>
