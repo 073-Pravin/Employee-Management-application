@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleSearch =async(e)=>{
     e.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:5000/api/employees/search/?name=${name}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`);
       setEmployees(response.data.employees);
     } catch (error) {
       console.log("Error in fetching employee",error);
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const handleHome = async()=>{
       try {
-        const response = await axios.get("http://localhost:5000/api/employees");
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees`);
 
         setEmployees(response.data.employees);
   
@@ -33,7 +33,7 @@ const Navbar = () => {
   const handleFilter = async(e)=>{
     try {
       const Department = e.target.name;
-      const response = await axios.get(`http://localhost:5000/api/employees/filter/?department=${Department}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`);
       setEmployees(response.data.employees);
     } catch (error) {
       console.log("Error in fetching employee",error);

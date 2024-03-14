@@ -15,7 +15,7 @@ const EmployeeCard = (props) => {
     e.preventDefault();
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/employees/delete/${employeestate.id}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/delete/${employeestate.id}`
       );
       setEmployees(response.data.employees);
     } catch (error) {

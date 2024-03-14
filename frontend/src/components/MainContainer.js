@@ -8,7 +8,7 @@ const MainContainer = () => {
   useEffect(() => {
     const init = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/employees");
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employees`);
         // console.log(response.data.employees);
         setEmployees(response.data.employees);
         // console.log(employees);

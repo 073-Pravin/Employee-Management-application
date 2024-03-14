@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useEmployees } from "../contexts/EmployeeProvider";
+
 const AddModal = () => {
   const [employees, setEmployees] = useEmployees();
   const [newemployee, setNewemployee] = useState({
@@ -16,7 +17,7 @@ const AddModal = () => {
   // console.log(employees);
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/employees/add", newemployee);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
       toast.success("Employee added successfully");
