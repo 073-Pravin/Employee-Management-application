@@ -19,13 +19,13 @@ const MainContainer = () => {
     init();
   }, [setEmployees]);
   return (
-    <div className="container">
-      <div className="row mx-auto">
+    <div className="container d-flex justify-content-center">
+      <div className="d-flex flex-wrap justify-content-center gap-4">
         {employees.length > 0 ? (
           employees?.map((employee) => {
             return (
               <div
-                className="col d-flex flex-start"
+                className="d-flex flex-start"
                 style={{
                   paddingRight: "0px",
                   paddingLeft: "0px",

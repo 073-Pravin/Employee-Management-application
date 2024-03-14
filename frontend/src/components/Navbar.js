@@ -35,7 +35,6 @@ const Navbar = () => {
       const Department = e.target.name;
       const response = await axios.get(`http://localhost:5000/api/employees/filter/?department=${Department}`);
       setEmployees(response.data.employees);
-      console.log(response.data.employees);
     } catch (error) {
       console.log("Error in fetching employee",error);
     }
