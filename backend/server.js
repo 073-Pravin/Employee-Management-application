@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 const buildPath = path.join(__dirname, "build");
 app.use(express.static(buildPath));
 
-
+console.log(buildPath);
 app.get('/', async(req,res)=>{
     // res.send('<h1>Welcome to the backend</h1>');
     res.sendFile(path.join(buildPath, "index.html"));
