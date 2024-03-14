@@ -17,7 +17,10 @@ const EmployeeCard = (props) => {
       const response = await axios.delete(
         `${process.env.REACT_APP_BACKEND_URL}/api/employees/delete/${employeestate.id}`
       );
-      setEmployees(response.data.employees);
+
+      const updatedEmployees = employees.filter((employee) => employee.id !== employeestate.id);
+      // setEmployees(response.data.employees);
+      setEmployees(updatedEmployees);
       setAvgsal(response.data.averageSalary);
       toast.success("Employee deleted successfully");
     } catch (error) {

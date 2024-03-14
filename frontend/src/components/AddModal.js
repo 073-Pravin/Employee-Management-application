@@ -43,7 +43,7 @@ const AddModal = () => {
     <div>
       <div>
         <Link
-          className="nav-link active"
+          className="nav-link active btn btn-dark text-white"
           to="#"
           data-bs-toggle="modal"
           data-bs-target="#addmodal"

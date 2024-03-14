@@ -26,7 +26,7 @@ export const getAllEmployeeController = async (req, res) => {
   try {
     let employees = await loadEmployees();
     const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
-    const averageSalary = totalSalary / employees.length;
+    const averageSalary = (totalSalary / employees.length).toFixed(2);
     res.status(200).json({ success: true, employees, totalSalary, averageSalary });
     // res.status(200).json({ success: true, employees });
   } catch (error) {
@@ -48,7 +48,7 @@ export const addEmployeeController = async (req, res) => {
     newEmployees = { id: employeeId, ...newEmployees };
     employees.push(newEmployees);
     const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
-    const averageSalary = totalSalary / employees.length;
+    const averageSalary = (totalSalary / employees.length).toFixed(2);
     saveEmployees(employees);
     res
       .status(201)
@@ -149,16 +149,19 @@ export const deleteEmployeeController = async (req, res) => {
     let employees = await loadEmployees();
     const index = employees.findIndex((employee) => employee.id === id.toString());
     if (index !== -1 && index < employees.length) {
+      const deletedEmployee = employees[index];
       employees.splice(index,1);
       const totalSalary = employees.reduce((sum, employee) => sum + parseInt(employee.salary), 0);
-      const averageSalary = totalSalary / employees.length;
+      const averageSalary = (totalSalary / employees.length).toFixed(2);
       saveEmployees(employees);
       res
         .status(200)
         .json({
           success: true,
           message: "Employee deleted successfully",
-          employees,averageSalary
+          employees,
+          averageSalary,
+          deletedEmployee,
         });
     } else {
       res.status(404).json({ success: false, message: "Employee not found" });
