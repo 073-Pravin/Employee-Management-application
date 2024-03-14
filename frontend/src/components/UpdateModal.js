@@ -19,7 +19,7 @@ const UpdateModal = (props) => {
     try {
       // Send request to update employee
       const response = await axios.put(
-        `api/employees/update/${props.employee.id}`,
+        `/api/employees/update/${props.employee.id}`,
         employeestate
       );
   

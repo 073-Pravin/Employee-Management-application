@@ -15,7 +15,7 @@ const EmployeeCard = (props) => {
     // e.preventDefault();
     try {
       const response = await axios.delete(
-        `api/employees/delete/${employeestate.id}`
+        `/api/employees/delete/${employeestate.id}`
       );
 
       const updatedEmployees = employees.filter((employee) => employee.id !== employeestate.id);

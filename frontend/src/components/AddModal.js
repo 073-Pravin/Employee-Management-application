@@ -17,7 +17,7 @@ const AddModal = () => {
   // console.log(employees);
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`api/employees/add`, newemployee);
+      const response = await axios.post(`/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
       setAvgsal(response.data.averageSalary);

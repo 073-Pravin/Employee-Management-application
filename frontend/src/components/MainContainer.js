@@ -10,7 +10,7 @@ const MainContainer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `api/employees`
+          `/api/employees`
         );
         setEmployees(response.data.employees);
         setAvgsal(response.data.averageSalary);
