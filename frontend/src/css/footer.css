@@ -1,0 +1,17 @@
+.footer {
+  background-color: #d41cd4!important;
+  padding: 20px 0 !important;
+  position: relative !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  border-top: 1px solid #e9ecef !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: fixed;
+}

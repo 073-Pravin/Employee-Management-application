@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEmployees } from "../contexts/EmployeeProvider";
 import AvgSalModal from "./AvgSalModal";
+import './../css/navbar.css'
 const Navbar = () => {
   const [name, setName] = useState();
   const { employees, setEmployees, avgsal, setAvgsal ,dep,setDep} = useEmployees();
@@ -13,7 +14,7 @@ const Navbar = () => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `/api/employees/search/?name=${name}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`
       );
       setEmployees(response.data.employees);
       setAvgsal(0);
@@ -25,7 +26,7 @@ const Navbar = () => {
   const handleHome = async () => {
     try {
       const response = await axios.get(
-        `/api/employees`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees`
       );
 
       setEmployees(response.data.employees);
@@ -39,7 +40,7 @@ const Navbar = () => {
     try {
       const Department = e.target.name;
       const response = await axios.get(
-        `/api/employees/filter/?department=${Department}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`
       );
       setEmployees(response.data.employees);
       setDep(e.target.name);
@@ -51,12 +52,13 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="">
+      <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
         <div className="container-fluid gap-5">
           <Link className="navbar-brand logo" to="#" onClick={handleHome}>
             EMA
           </Link>
+            {/* <img src="/assets/logo.png" alt="Logo" className="navbar-brand logo" /> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -66,13 +68,13 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon menuToggler"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 flex flex-row gap-4">
+            <ul className="navbar-nav me-auto  mb-lg-0 flex flex-row gap-4">
               <li className="nav-item">
                 <Link
-                  className="nav-link active btn btn-dark text-white"
+                  className="nav-link active btn navBtn btn-dark"
                   aria-current="page"
                   to="#"
                   onClick={handleHome}
@@ -85,17 +87,17 @@ const Navbar = () => {
               </li>
               <div className="dropdown">
                 <Link
-                  className="nav-link active dropdown-toggle btn btn-dark text-white"
+                  className="nav-link active dropdown-toggle navBtn btn btn-dark"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Filter by department
                 </Link>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu cusDropdown">
                   <li>
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item cusDropdownItem"
                       to="#"
                       onClick={handleFilter}
                       name="development"
@@ -105,7 +107,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item cusDropdownItem"
                       to="#"
                       onClick={handleFilter}
                       name="project management"
@@ -115,7 +117,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item cusDropdownItem"
                       to="#"
                       onClick={handleFilter}
                       name="human resources"
@@ -125,7 +127,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item cusDropdownItem"
                       to="#"
                       onClick={handleFilter}
                       name="data analytics"
@@ -135,7 +137,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item cusDropdownItem"
                       to="#"
                       onClick={handleFilter}
                       name="finance and accounting"
@@ -145,22 +147,22 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              {/* <li className="nav-item">
+              <li className="nav-item ">
                 <AvgSalModal />
-              </li> */}
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input
-                className="form-control me-2"
+                className=" me-2 navSearchInput"
                 type="search"
                 placeholder="Search"
-                aria-label="Search"
+                
                 name="name"
                 onChange={(e) => setName(e.target.value)}
                 required
               />
               <button
-                className="btn btn-outline-success"
+                className="btn navBtn"
                 onClick={handleSearch}
                 type="submit"
               >

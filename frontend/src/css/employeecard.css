@@ -1,0 +1,20 @@
+.card-body{
+    background-color: black!important;
+    border-radius: 4px!important;
+    color: white!important;
+}
+.card{
+    border: solid 2px#d41cd4 !important;
+}
+.btn{
+    background-color: #d41cd4!important;
+    color: white!important;
+    border: solid 2px #d41cd4!important;
+}
+
+
+.btn:hover{
+    background-color: #000000!important;
+    color: white!important;
+    border: solid 2px #d41cd4!important;
+}

@@ -1,3 +1,66 @@
+
+.navbar{
+    background-color: black !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: solid 6px #da63db
+}
+.navBtn{
+    background-color: #da63db !important;
+    color: #0c0c0c !important;
+    border: solid black 2px!important;
+    font-weight: 400;
+    height: 37.6px;
+    display: flex;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.menuToggler{
+    background-color: #da63db !important;
+    color: #0c0c0c !important;
+    font-weight: 400;
+    border-radius: 4px;
+}
+.navSearchInput{
+    background-color: black;
+    border-color: #da63db;
+    border-width: 2px;
+    padding-left: 6px;
+    border-radius: 7px;
+    color: #da63db;
+}
 .logo{
-    size:20px;
+    color: #da63db !important;
+    font-weight: 900;
+    padding: 0px;
+    margin: 0px;
+    font-size: 40px;
+    margin-left: 11px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.logo:hover{
+    color: #da63db !important;
+    text-decoration: none;
+}
+
+
+@media (min-width: 992px) {
+    .container .container-lg .container-md .container-sm {
+    max-width: fit-content!important;
+}
+}
+
+.cusDropdown{
+    background-color: #da63db !important;
+    color: white !important;
+}
+/* .cusDropdown:hover{
+    background-color: black !important;
+    color: white !important;
+} */
+
+.cusDropdownItem:hover{
+    background-color: black !important;
+    color: white !important;
 }

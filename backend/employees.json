@@ -8,14 +8,6 @@
     "department": "Development"
   },
   {
-    "id": "2ndm9k3hpmw5s4t",
-    "fullname": "Ethan",
-    "age": "28",
-    "dob": "2023-05-21",
-    "salary": "105000",
-    "department": "Finance and Accounting"
-  },
-  {
     "id": "3e7xf8rj2p9mb5w",
     "fullname": "Sophia",
     "age": "26",
@@ -120,14 +112,6 @@
     "department": "Marketing"
   },
   {
-    "id": "17t6hnmwq2fgd8k1m",
-    "fullname": "Amelia",
-    "age": "26",
-    "dob": "2008-11-03",
-    "salary": "95000",
-    "department": "Finance and Accounting"
-  },
-  {
     "id": "19wq2fgd8k1m9k3h",
     "fullname": "Harper",
     "age": "29",
@@ -142,5 +126,21 @@
     "dob": "2005-01-15",
     "salary": "115000",
     "department": "Marketing"
+  },
+  {
+    "id": "ndgl41hrsltrs79im",
+    "fullname": "Pravin Pilodiya",
+    "age": "24",
+    "dob": "2024-03-12",
+    "salary": "120000",
+    "department": "Development"
+  },
+  {
+    "id": "ndgl41niklts9wdce",
+    "fullname": "Setty",
+    "age": "24",
+    "dob": "2024-03-13",
+    "salary": "50000",
+    "department": "Development"
   }
 ]

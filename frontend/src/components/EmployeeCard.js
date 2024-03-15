@@ -4,7 +4,7 @@ import UpdateModal from "./UpdateModal";
 import axios from "axios";
 import { useEmployees } from "../contexts/EmployeeProvider";
 import {toast} from "react-hot-toast";
-
+import './../css/employeecard.css'
 
 const EmployeeCard = (props) => {
   const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
@@ -15,7 +15,7 @@ const EmployeeCard = (props) => {
     // e.preventDefault();
     try {
       const response = await axios.delete(
-        `/api/employees/delete/${employeestate.id}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/delete/${employeestate.id}`
       );
 
       const updatedEmployees = employees.filter((employee) => employee.id !== employeestate.id);
@@ -43,7 +43,7 @@ const EmployeeCard = (props) => {
           <p className="card-text">DOB : {employeestate.dob}</p>
           <p className="card-text">Salary : {employeestate.salary}</p>
           <p className="card-text">Department : {employeestate.department}</p>
-          <div className="d-flex flex-row justify-content-end">
+          <div className="d-flex flex-row justify-content-end overflow-y-auto ">
             <Link to="#" className="btn btn-danger mx-1" onClick={handleDelete}>
               Delete
             </Link>

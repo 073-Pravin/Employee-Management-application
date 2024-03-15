@@ -1,0 +1,21 @@
+.cusContainer{
+    background-color: black !important;
+    color: white !important;
+    height: 100%;
+
+    
+}
+
+.headline{
+    background-color: black !important;
+    color: white !important;
+    height: 60px;
+}
+
+.mappingCard{
+    width: fit-content;
+}
+
+.mappingCard::-webkit-scrollbar {
+    display: none;
+}

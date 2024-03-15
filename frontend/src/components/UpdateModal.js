@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useEmployees } from "../contexts/EmployeeProvider";
-
+import './../css/modalCss.css'
 const UpdateModal = (props) => {
   const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
   const [employeestate, setEmployeestate] = useState({
@@ -19,7 +19,7 @@ const UpdateModal = (props) => {
     try {
       // Send request to update employee
       const response = await axios.put(
-        `/api/employees/update/${props.employee.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/update/${props.employee.id}`,
         employeestate
       );
   
@@ -72,7 +72,7 @@ const UpdateModal = (props) => {
           aria-hidden="true"
         >
           <div className="modal-dialog">
-            <div className="modal-content">
+            <div className="modal-content modalCss">
               <div className="modal-header">
                 <h1
                   className="modal-title fs-5"
@@ -98,7 +98,7 @@ const UpdateModal = (props) => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="fullname"
                       id={`fullname-${props.employee.id}`}
                       value={employeestate.fullname}
@@ -115,7 +115,7 @@ const UpdateModal = (props) => {
                     </label>
                     <input
                       type="number"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="age"
                       id={`age-${props.employee.id}`}
                       value={employeestate.age}
@@ -132,7 +132,7 @@ const UpdateModal = (props) => {
                     </label>
                     <input
                       type="date"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="dob"
                       id={`dob-${props.employee.id}`}
                       value={employeestate.dob}
@@ -149,7 +149,7 @@ const UpdateModal = (props) => {
                     </label>
                     <input
                       type="number"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="salary"
                       id={`salary-${props.employee.id}`}
                       value={employeestate.salary}
@@ -166,7 +166,7 @@ const UpdateModal = (props) => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="department"
                       id={`department-${props.employee.id}`}
                       value={employeestate.department}

@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useEmployees } from "../contexts/EmployeeProvider";
+import './../css/modalCss.css';
 const AvgSalModal = () => {
+  const { avgsal, setAvgsal, dep, setDep } = useEmployees();
+
+  // const handleAvgSalary =async ()=>{
+
+  // }
   return (
     <div>
       <div>
@@ -9,6 +15,7 @@ const AvgSalModal = () => {
           className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#avgsalmodal"
+          // onClick={handleAvgSalary}
         >
           Get Average Salary of an employee
         </button>
@@ -19,12 +26,12 @@ const AvgSalModal = () => {
           aria-labelledby="avgsalmodal"
           aria-hidden="true"
         >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="avgsalmodal">
-                  Modal title
-                </h1>
+          <div className="modal-dialog ">
+            <div className="modal-content ">
+              <div className="modal-header AvgSalmodalCss">
+                <h3 className="modal-title " id="avgsalmodal">
+                  Average salary 
+                </h3>
                 <button
                   type="button"
                   className="btn-close"
@@ -32,7 +39,22 @@ const AvgSalModal = () => {
                   aria-label="Close"
                 />
               </div>
-              <div className="modal-body">...</div>
+              <h4 className="modal-body modalCss" id="avgsalmodal">
+                Average salary: {avgsal}
+              </h4>
+              {/* <h4 className="modal-body modalCss" id="avgsalmodal">
+                Average salary of development department : {avgsal}
+              </h4>
+              <h4 className="modal-body modalCss" id="avgsalmodal">
+              Average salary of project management department : {avgsal}
+              </h4>
+              <h4 className="modal-body modalCss" id="avgsalmodal">
+              Average salary of Marketing department : {avgsal}
+              </h4>
+              <h4 className="modal-body modalCss" id="avgsalmodal">
+              Average salary of data analyst department : {avgsal}
+              </h4> */}
+              {/* <div className="modal-body">...</div> */}
             </div>
           </div>
         </div>

@@ -1,0 +1,16 @@
+.modalCss{
+    background-color:#0d0d0d  !important;
+    color:  white!important;
+}
+
+.modalInput{
+    background-color: #da63db;
+    border-width: 2px;
+    padding-left: 6px;
+    border-radius: 7px;
+    color: black;
+}
+.AvgSalmodalCss{
+    background-color:#da63db !important;
+    color:  black!important;
+}

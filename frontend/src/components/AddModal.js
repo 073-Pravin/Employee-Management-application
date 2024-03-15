@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useEmployees } from "../contexts/EmployeeProvider";
-
+import "././../css/addmodal.css"
+import "././../css/navbar.css"
+import "././../css/modalCss.css"
 const AddModal = () => {
   const { employees, setEmployees, avgsal, setAvgsal } = useEmployees();
   const [newemployee, setNewemployee] = useState({
@@ -17,7 +19,7 @@ const AddModal = () => {
   // console.log(employees);
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`/api/employees/add`, newemployee);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
       setAvgsal(response.data.averageSalary);
@@ -43,7 +45,7 @@ const AddModal = () => {
     <div>
       <div>
         <Link
-          className="nav-link active btn btn-dark text-white"
+          className="nav-link active btn btn-dark navBtn"
           to="#"
           data-bs-toggle="modal"
           data-bs-target="#addmodal"
@@ -52,14 +54,14 @@ const AddModal = () => {
           Add new employee
         </Link>
         <div
-          className="modal fade"
+          className="modal fade cusModal"
           id="addmodal"
           tabIndex={-1}
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
           <div className="modal-dialog">
-            <div className="modal-content">
+            <div className="modal-content modalCss">
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Enter details
@@ -79,7 +81,7 @@ const AddModal = () => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="fullname"
                       value={newemployee.fullname}
                       onChange={handleInputChange}
@@ -93,7 +95,7 @@ const AddModal = () => {
                     </label>
                     <input
                       type="number"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="age"
                       value={newemployee.age}
                       onChange={handleInputChange}
@@ -107,7 +109,7 @@ const AddModal = () => {
                     </label>
                     <input
                       type="date"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="dob"
                       value={newemployee.dob}
                       onChange={handleInputChange}
@@ -121,7 +123,7 @@ const AddModal = () => {
                     </label>
                     <input
                       type="number"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="salary"
                       value={newemployee.salary}
                       onChange={handleInputChange}
@@ -135,7 +137,7 @@ const AddModal = () => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control modalInput"
                       name="department"
                       value={newemployee.department}
                       onChange={handleInputChange}
@@ -148,14 +150,14 @@ const AddModal = () => {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-secondary navBtn"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-primary navBtn"
                   data-bs-dismiss="modal"
                   onClick={handleSubmit}
                 >
