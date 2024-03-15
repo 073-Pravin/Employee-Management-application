@@ -5,16 +5,17 @@ import { useState } from "react";
 import axios from "axios";
 import { useEmployees } from "../contexts/EmployeeProvider";
 import AvgSalModal from "./AvgSalModal";
-import './../css/navbar.css'
+import "./../css/navbar.css";
 const Navbar = () => {
   const [name, setName] = useState();
-  const { employees, setEmployees, avgsal, setAvgsal ,dep,setDep} = useEmployees();
+  const { employees, setEmployees, avgsal, setAvgsal, dep, setDep } =
+    useEmployees();
 
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `/api/employees/search/?name=${name}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`
       );
       setEmployees(response.data.employees);
       setAvgsal(0);
@@ -26,7 +27,7 @@ const Navbar = () => {
   const handleHome = async () => {
     try {
       const response = await axios.get(
-        `/api/employees`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees`
       );
 
       setEmployees(response.data.employees);
@@ -40,12 +41,11 @@ const Navbar = () => {
     try {
       const Department = e.target.name;
       const response = await axios.get(
-        `/api/employees/filter/?department=${Department}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`
       );
       setEmployees(response.data.employees);
       setDep(e.target.name);
       setAvgsal(response.data.averageSalary);
-
     } catch (error) {
       console.log("Error in fetching employee", error);
     }
@@ -58,7 +58,7 @@ const Navbar = () => {
           <Link className="navbar-brand logo" to="#" onClick={handleHome}>
             EMA
           </Link>
-            {/* <img src="/assets/logo.png" alt="Logo" className="navbar-brand logo" /> */}
+          {/* <img src="/assets/logo.png" alt="Logo" className="navbar-brand logo" /> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -71,10 +71,10 @@ const Navbar = () => {
             <span className="navbar-toggler-icon menuToggler"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto  mb-lg-0 flex flex-row gap-4">
+            <ul className="navbar-nav me-auto  m-3 mt-0 mb-0 mb-lg-0 flex flex-row gap-4 navUl">
               <li className="nav-item">
                 <Link
-                  className="nav-link active btn navBtn btn-dark"
+                  className="nav-link active btn btn-dark"
                   aria-current="page"
                   to="#"
                   onClick={handleHome}
@@ -87,7 +87,7 @@ const Navbar = () => {
               </li>
               <div className="dropdown">
                 <Link
-                  className="nav-link active dropdown-toggle navBtn btn btn-dark"
+                  className="nav-link active dropdown-toggle btn btn-dark"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -147,28 +147,27 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              <li className="nav-item ">
+              <li className="nav-item">
                 <AvgSalModal />
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className=" me-2 navSearchInput"
-                type="search"
-                placeholder="Search"
-                
-                name="name"
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <button
-                className="btn navBtn"
-                onClick={handleSearch}
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
+                <form className="d-flex m-3 flex justify-content-end " role="search">
+                  <input
+                    className=" me-2 navSearchInput"
+                    type="search"
+                    placeholder="Search"
+                    name="name"
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                  <button
+                    className="btn navBtn"
+                    onClick={handleSearch}
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </form>
           </div>
         </div>
       </nav>

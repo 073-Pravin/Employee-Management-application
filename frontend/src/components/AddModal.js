@@ -19,7 +19,7 @@ const AddModal = () => {
   // console.log(employees);
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`/api/employees/add`, newemployee);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
       setAvgsal(response.data.averageSalary);
@@ -45,7 +45,7 @@ const AddModal = () => {
     <div>
       <div>
         <Link
-          className="nav-link active btn btn-dark navBtn"
+          className="nav-link active btn btn-dark"
           to="#"
           data-bs-toggle="modal"
           data-bs-target="#addmodal"

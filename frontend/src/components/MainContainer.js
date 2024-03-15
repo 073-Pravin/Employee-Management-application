@@ -11,7 +11,7 @@ const MainContainer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `/api/employees`
+          `${process.env.REACT_APP_BACKEND_URL}/api/employees`
         );
         setEmployees(response.data.employees);
         setAvgsal(response.data.averageSalary);

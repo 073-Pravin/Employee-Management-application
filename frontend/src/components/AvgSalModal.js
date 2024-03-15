@@ -1,6 +1,7 @@
 import React from "react";
 import { useEmployees } from "../contexts/EmployeeProvider";
 import './../css/modalCss.css';
+import { Link } from "react-router-dom";
 const AvgSalModal = () => {
   const { avgsal, setAvgsal, dep, setDep } = useEmployees();
 
@@ -10,15 +11,16 @@ const AvgSalModal = () => {
   return (
     <div>
       <div>
-        <button
+        <Link
           type="button"
-          className="btn btn-primary"
+          className="nav-link active btn btn-dark"
           data-bs-toggle="modal"
           data-bs-target="#avgsalmodal"
+          data-bs-whatever="@mdo"
           // onClick={handleAvgSalary}
         >
           Get Average Salary of an employee
-        </button>
+        </Link>
         <div
           className="modal fade"
           id="avgsalmodal"
