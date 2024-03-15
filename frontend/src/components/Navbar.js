@@ -14,7 +14,7 @@ const Navbar = () => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/employees/search/?name=${name}`
+        `/api/employees/search/?name=${name}`
       );
       setEmployees(response.data.employees);
       setAvgsal(0);
@@ -26,7 +26,7 @@ const Navbar = () => {
   const handleHome = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/employees`
+        `/api/employees`
       );
 
       setEmployees(response.data.employees);
@@ -40,7 +40,7 @@ const Navbar = () => {
     try {
       const Department = e.target.name;
       const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/employees/filter/?department=${Department}`
+        `/api/employees/filter/?department=${Department}`
       );
       setEmployees(response.data.employees);
       setDep(e.target.name);
