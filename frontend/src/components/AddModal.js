@@ -19,6 +19,26 @@ const AddModal = () => {
   // console.log(employees);
   const handleSubmit = async () => {
     try {
+      if (newemployee.fullname === "") {
+        toast.error("Please enter full name");
+        return;
+      }
+      if (newemployee.age === "" || newemployee.age < 0) {
+        toast.error("Please enter a valid age");
+        return;
+      }
+      if (newemployee.dob === "") {
+        toast.error("Please enter date of birth");
+        return;
+      }
+      if (newemployee.salary === "" || newemployee.salary < 0) {
+        toast.error("Please enter a valid salary");
+        return;
+      }
+      if (newemployee.department === "") {
+        toast.error("Please enter department");
+        return;
+      }
       const response = await axios.post(`/api/employees/add`, newemployee);
       console.log(response);
       setEmployees([...employees, response.data.newEmployees]);
@@ -36,9 +56,25 @@ const AddModal = () => {
     }
   };
 
+  const handleClose =()=>{
+    try {
+      setNewemployee({
+        fullname: "",
+        age: "",
+        dob: "",
+        salary: "",
+        department: "",
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleInputChange = async (e) => {
     const { name, value } = e.target;
-    setNewemployee({ ...newemployee, [name]: value });
+    if(name && value) {
+      setNewemployee({ ...newemployee, [name]: value });
+    }
   };
 
   return (
@@ -152,6 +188,7 @@ const AddModal = () => {
                   type="button"
                   className="btn btn-secondary navBtn"
                   data-bs-dismiss="modal"
+                  onClick={handleClose}
                 >
                   Close
                 </button>

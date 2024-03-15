@@ -38,10 +38,10 @@ const EmployeeCard = (props) => {
           alt="..."
         /> */}
         <div className="card-body ">
-          <h5 className="card-title ">{employeestate.fullname}</h5>
-          <p className="card-text">Age : {employeestate.age}</p>
-          <p className="card-text">DOB : {employeestate.dob}</p>
-          <p className="card-text">Salary : {employeestate.salary}</p>
+          <h5 className="card-title ">Name : {employeestate.fullname}</h5>
+          <p className="card-text">Age : {employeestate.age} years</p>
+          <p className="card-text">DOB (yyyy/mm/dd) : {employeestate.dob}</p>
+          <p className="card-text">Salary : Rs. {new Intl.NumberFormat("en-IN").format(employeestate.salary)}</p>
           <p className="card-text">Department : {employeestate.department}</p>
           <div className="d-flex flex-row justify-content-end overflow-y-auto ">
             <Link to="#" className="btn btn-danger mx-1" onClick={handleDelete}>

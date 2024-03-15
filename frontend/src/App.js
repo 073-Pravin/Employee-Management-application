@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 import {EmployeeProvider} from "./contexts/EmployeeProvider";
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <BrowserRouter>
         <EmployeeProvider>
           <Toaster position="top-right" reverseOrder={false} />

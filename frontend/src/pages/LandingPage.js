@@ -6,7 +6,7 @@ const LandingPage = ({children}) => {
   return (
     <div>
       <Navbar/>
-        <main style={{ minHeight: "80vh",width:"100%", marginTop:"62px" }} className='LandingPage'>{children}</main>
+        <main style={{ minHeight: "80vh",width:"100%", marginTop:"62px"}} className='LandingPage'>{children}</main>
       {/* <Footer/> */}
     </div>
   )

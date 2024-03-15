@@ -2,11 +2,16 @@
     background-color: black !important;
     color: white !important;
     height: 100%;
-
-    
+    align-items: center;
+}
+.emptyContainer{
+    background-color: black !important;
+    color: white !important;
+    height:100vh;
+    justify-content: start !important;
 }
 
-.headline{
+.headline{  
     background-color: black !important;
     color: white !important;
     height: 60px;

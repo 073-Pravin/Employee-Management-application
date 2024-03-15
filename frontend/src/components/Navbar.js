@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <div className="">
-      <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid gap-5">
           <Link className="navbar-brand logo" to="#" onClick={handleHome}>
             EMA
@@ -151,23 +151,26 @@ const Navbar = () => {
                 <AvgSalModal />
               </li>
             </ul>
-                <form className="d-flex m-3 flex justify-content-end " role="search">
-                  <input
-                    className=" me-2 navSearchInput"
-                    type="search"
-                    placeholder="Search"
-                    name="name"
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                  <button
-                    className="btn navBtn"
-                    onClick={handleSearch}
-                    type="submit"
-                  >
-                    Search
-                  </button>
-                </form>
+            <form
+              className="d-flex m-3 flex justify-content-end "
+              role="search"
+            >
+              <input
+                className=" me-2 navSearchInput"
+                type="search"
+                placeholder="Search"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+              <button
+                className="btn navBtn"
+                onClick={handleSearch}
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
           </div>
         </div>
       </nav>

@@ -142,5 +142,13 @@
     "dob": "2024-03-13",
     "salary": "50000",
     "department": "Development"
+  },
+  {
+    "id": "ndgl41jbgltsh2tr7",
+    "fullname": "Hary",
+    "age": "24",
+    "dob": "2024-03-12",
+    "salary": "120555",
+    "department": "Human resources"
   }
 ]

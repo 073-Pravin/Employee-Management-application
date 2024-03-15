@@ -24,22 +24,7 @@ const MainContainer = () => {
 
   return (
     <>
-      {/* <div className="headline position-relative ">
-        {dep.length !== 0 ? (
-          <div className="text-center my-1">
-            <h3>
-              <b>Employees of {dep} department</b>
-            </h3>
-          </div>
-        ) : (
-          <div className="text-center my-1">
-            <h3>
-              <b>Employees of all department</b>
-            </h3>
-          </div>
-        )}
-      </div> */}
-      <div className="cusContainer d-flex flex-column justify-content-center p-0">
+      <div className={`cusContainer d-flex flex-column justify-content-center p-0`}>
         {/* {avgsal > 0 && (
           <div className="text-center my-1">
             <h4>Average Salary: Rs. {avgsal}</h4>
