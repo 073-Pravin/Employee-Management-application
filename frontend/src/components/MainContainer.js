@@ -39,19 +39,33 @@ const MainContainer = () => {
           </div>
         )}
       </div> */}
-      <div className="cusContainer d-flex flex-column justify-content-center p-0 m-0">
+      <div className="cusContainer d-flex flex-column justify-content-center p-0">
         {/* {avgsal > 0 && (
           <div className="text-center my-1">
             <h4>Average Salary: Rs. {avgsal}</h4>
           </div>
         )} */}
+        <div className="headline position-relative mt-6 ">
+          {dep.length !== 0 ? (
+            <div className="text-center my-1">
+              <h1>
+                <b>Employees of {dep} department</b>
+              </h1>
+            </div>
+          ) : (
+            <div className="text-center my-1">
+              <h1>
+                <b>Employees of all department</b>
+              </h1>
+            </div>
+          )}
+        </div>
         <div
-         
           className={`d-flex flex-wrap ${
             employees && employees.length > 0
               ? "justify-content-center"
               : "justify-content-center"
-          } gap-4 mt-5 mappingCard `}
+          } gap-4 mt-5 mappingCard`}
         >
           {employees && employees.length > 0 ? (
             employees.map((employee) => (
